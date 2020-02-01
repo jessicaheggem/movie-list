@@ -22,18 +22,16 @@ class Home extends Component {
 
     render() {
         return (
-           
-                <div>
-                    {this.props.reduxState.movies.map(item =>
-                        <div key={item.id}>
+            <div className="movies">
+                {this.props.reduxState.movies.map(item =>
+                    <div key={item.id}>
                         <h2>{item.title}</h2>
                         <img src={item.poster} />
                         <p>{item.description}</p>
                         <button onClick={this.handleGenreClick}>Genre</button>
-                        </div>
-                        )}
-                </div>
-          
+                    </div>
+                )}
+            </div>
         );
     }
 }
