@@ -8,7 +8,12 @@ app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
-
+const moviesRouter = require('./routes/movies.router');
+// const categoryRouter = require('./routes/category.router');
+// const searchRouter = require('./routes/search.router')
+app.use('/api/movies', moviesRouter);
+// app.use('/details', categoryRouter);
+// app.use('/edit', searchRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
