@@ -20,13 +20,17 @@ class Home extends Component {
 
     }
 
+    handleImageClick = () => {
+        this.props.history.push('/details');
+    }
+
     render() {
         return (
             <div className="movies">
                 {this.props.reduxState.movies.map(item =>
                     <div key={item.id}>
                         <h2>{item.title}</h2>
-                        <img src={item.poster} />
+                        <img src={item.poster} onClick={this.handleImageClick}/>
                         <p>{item.description}</p>
                         <button onClick={this.handleGenreClick}>Genre</button>
                     </div>
