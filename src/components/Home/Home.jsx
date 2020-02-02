@@ -32,12 +32,14 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="movies">
+            <div 
+            // className="movies"
+            >
                 {this.props.reduxState.movies.map(item =>
                     <div key={item.id}>
                         <h2>{item.title}</h2>
                         <img src={item.poster} onClick={() => this.handleImageClick(item.id)}/>
-                        <p>{item.description}</p>
+                        {/* <p>{item.description}</p> */}
                         {/* <button onClick={this.handleGenreClick}>Genre</button> */}
                     </div>
                 )}

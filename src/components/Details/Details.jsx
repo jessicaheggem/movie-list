@@ -28,8 +28,8 @@ class Details extends Component {
                 <h2>{this.props.reduxState.details.title}</h2>
                 <img src={this.props.reduxState.details.poster} />
                 <div>{this.props.reduxState.details.description}</div>
-                
-                <h4>{this.props.reduxState.genres.name}</h4>
+                <h3>Genres:</h3>
+                <p>{this.props.reduxState.genres.name}</p>
 
                 {/* <div>{this.props.}</div> */}
             </>

@@ -16,35 +16,31 @@ import createSagaMiddleware from 'redux-saga';
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_DETAILS', getDetails);
-    // yield takeEvery('GET_GENRES', getGenres)
 }
 
 function* getMovies() {
-    let response = yield axios.get('/api/movies');
-    yield put({ type: 'SET_MOVIES', payload: response.data })
+    try {
+        let response = yield axios.get('/api/movies');
+        yield put({ type: 'SET_MOVIES', payload: response.data })
+    }
+    catch (error) {
+        console.log('Error in getMovies', error);
+    }
 }
 
 function* getDetails(action) {
     // console.log('clicked getDetails', action);
-    
+
     try {
         let response = yield axios.get(`/api/details/${action.payload}`);
         yield put({ type: 'SET_DETAILS', payload: response.data[0] })
         let genres = yield axios.get(`/api/genres/${action.payload}`);
         yield put({ type: 'SET_GENRES', payload: genres.data[0] })
-
-
-    } catch (error) {
+    }
+    catch (error) {
         console.log('Error in getDetails', error);
-        
     }
 }
-
-// function* displayMovieDetails(action){
-//     console.log('in addToFavorites')
-//     yield axios.post('/api/details', action.payload);
-//     yield put({type: 'GET_DETAILS'});
-// }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -80,7 +76,7 @@ const details = (state = 0, action) => {
         default:
             return state;
     }
-    
+
 }
 
 // Create one store that all components can use
