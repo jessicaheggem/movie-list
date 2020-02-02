@@ -30,7 +30,6 @@ function* getMovies() {
 
 function* getDetails(action) {
     // console.log('clicked getDetails', action);
-
     try {
         let response = yield axios.get(`/api/details/${action.payload}`);
         yield put({ type: 'SET_DETAILS', payload: response.data[0] })
@@ -76,8 +75,21 @@ const details = (state = 0, action) => {
         default:
             return state;
     }
-
 }
+//reducer to update description
+//**LIKELY DO NOT NEED THIS**
+// const updateDescription = (state = {}, action) => {
+//     switch (action.type) {
+//         case 'SET_NEW_DESCRIPTION':
+//             return {
+//                 ...state,
+//                 description : action.payload
+//             }
+//         default:
+//             return state;
+//     }
+// }
+
 
 // Create one store that all components can use
 const storeInstance = createStore(
@@ -85,6 +97,7 @@ const storeInstance = createStore(
         movies,
         genres,
         details,
+
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

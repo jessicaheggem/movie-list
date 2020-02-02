@@ -6,19 +6,19 @@ class Details extends Component {
     // Renders the entire app on the DOM
     handleBackClick = () => {
         console.log('clicked back to list');
+        //directing to home page
         this.props.history.push('/');
-
     }
 
     handleEditClick = () => {
         console.log('clicked edit');
+        //directing to /edit page
         this.props.history.push('/edit');
-
     }
 
     render() {
         return (
-            <>
+            <div className="movies">
                 <h2>Details</h2>
                 <button onClick={this.handleBackClick}>Back to List</button>
                 <button onClick={this.handleEditClick}>Edit</button>
@@ -32,7 +32,7 @@ class Details extends Component {
                 <p>{this.props.reduxState.genres.name}</p>
 
                 {/* <div>{this.props.}</div> */}
-            </>
+            </div>
 
         );
     }
