@@ -9,10 +9,10 @@ app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
 const moviesRouter = require('./routes/movies.router');
-// const categoryRouter = require('./routes/category.router');
+const detailsRouter = require('./routes/details.router');
 // const searchRouter = require('./routes/search.router')
 app.use('/api/movies', moviesRouter);
-// app.use('/details', categoryRouter);
+app.use('/api/details/:id', detailsRouter);
 // app.use('/edit', searchRouter);
 
 /** ---------- START SERVER ---------- **/

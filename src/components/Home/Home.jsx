@@ -17,11 +17,17 @@ class Home extends Component {
 
     handleGenreClick = () => {
         console.log('clicked genre');
-
+        
     }
 
-    handleImageClick = () => {
-        this.props.history.push('/details');
+    handleImageClick = (id) => {
+        console.log(id);
+        this.props.dispatch({
+            type: 'GET_DETAILS',
+            payload: id
+        })
+        this.props.history.push(`/details/${id}`);
+        
     }
 
     render() {
@@ -30,9 +36,9 @@ class Home extends Component {
                 {this.props.reduxState.movies.map(item =>
                     <div key={item.id}>
                         <h2>{item.title}</h2>
-                        <img src={item.poster} onClick={this.handleImageClick}/>
+                        <img src={item.poster} onClick={() => this.handleImageClick(item)}/>
                         <p>{item.description}</p>
-                        <button onClick={this.handleGenreClick}>Genre</button>
+                        {/* <button onClick={this.handleGenreClick}>Genre</button> */}
                     </div>
                 )}
             </div>
