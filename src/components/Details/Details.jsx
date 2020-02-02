@@ -4,11 +4,13 @@ class Details extends Component {
     // Renders the entire app on the DOM
     handleBackClick = () => {
         console.log('clicked back to list');
+        this.props.history.push('/');
 
     }
 
     handleEditClick = () => {
         console.log('clicked edit');
+        this.props.history.push('/edit');
 
     }
 

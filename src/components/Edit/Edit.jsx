@@ -4,6 +4,7 @@ class Edit extends Component {
     // Renders the entire app on the DOM
     handleCancelClick = () => {
         console.log('clicked cancel');
+        this.props.history.push('/details');
         
     }
 
