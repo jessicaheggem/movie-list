@@ -25,7 +25,7 @@ function* getMovies() {
 }
 
 function* getDetails(action) {
-    console.log('clicked getDetails', action);
+    // console.log('clicked getDetails', action);
     
     try {
         let response = yield axios.get(`/api/details/${action.payload}`);
@@ -68,8 +68,7 @@ const genres = (state = [], action) => {
 }
 
 const details = (state = 0, action) => {
-    console.log('in details', action.payload);
-
+    // console.log('in details', action.payload);
     switch (action.type) {
         case 'SET_DETAILS':
             return action.payload;

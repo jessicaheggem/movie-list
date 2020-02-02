@@ -18,18 +18,19 @@ class Details extends Component {
 
     render() {
         return (
-            
-         
             <>
-            
                 <h2>Details</h2>
                 <button onClick={this.handleBackClick}>Back to List</button>
                 <button onClick={this.handleEditClick}>Edit</button>
-                {JSON.stringify(this.props.description)}
-                {/* <div>{this.props.reduxState.movies}</div> */}
+                <br />
+                <br />
+                {/* {JSON.stringify(this.props.reduxState.details)} */}
+                <h2>{this.props.reduxState.details.title}</h2>
+                <img src={this.props.reduxState.details.poster} />
+                <div>{this.props.reduxState.details.description}</div>
                 {/* <div>{this.props.}</div> */}
             </>
-             
+
         );
     }
 }

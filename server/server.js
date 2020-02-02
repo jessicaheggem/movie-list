@@ -12,7 +12,7 @@ const moviesRouter = require('./routes/movies.router');
 const detailsRouter = require('./routes/details.router');
 // const searchRouter = require('./routes/search.router')
 app.use('/api/movies', moviesRouter);
-app.use('/api/details/:id', detailsRouter);
+app.use('/api/details', detailsRouter);
 // app.use('/edit', searchRouter);
 
 /** ---------- START SERVER ---------- **/

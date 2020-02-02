@@ -3,9 +3,9 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
-router.get('/details/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     // return all categories
-    console.log(req.query)
+    console.log(req.params)
     const queryText = `SELECT * FROM "movies" WHERE "id"=$1`;
     pool.query(queryText, [req.params.id])
         .then( (result) => {
