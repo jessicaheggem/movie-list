@@ -16,8 +16,7 @@ class Home extends Component {
     }
 
     handleGenreClick = () => {
-        console.log('clicked genre');
-        
+        console.log('clicked genre');        
     }
 
     handleImageClick = (id) => {
@@ -27,7 +26,6 @@ class Home extends Component {
             payload: id
         })
         this.props.history.push(`/details/${id}`);
-        
     }
 
     render() {

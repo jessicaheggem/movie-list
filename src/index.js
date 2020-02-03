@@ -33,6 +33,7 @@ function* getDetails(action) {
     try {
         let response = yield axios.get(`/api/details/${action.payload}`);
         yield put({ type: 'SET_DETAILS', payload: response.data[0] })
+
         let genres = yield axios.get(`/api/genres/${action.payload}`);
         yield put({ type: 'SET_GENRES', payload: genres.data[0] })
     }
@@ -71,7 +72,6 @@ const details = (state = 0, action) => {
     switch (action.type) {
         case 'SET_DETAILS':
             return action.payload;
-
         default:
             return state;
     }
