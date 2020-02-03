@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
 class Details extends Component {
     // Renders the entire app on the DOM
     handleBackClick = () => {
@@ -24,14 +23,13 @@ class Details extends Component {
                 <button onClick={this.handleEditClick}>Edit</button>
                 <br />
                 <br />
+                {/* stringify to see if I can splat data on the DOM */}
                 {/* {JSON.stringify(this.props.reduxState.details)} */}
                 <h2>{this.props.reduxState.details.title}</h2>
                 <img src={this.props.reduxState.details.poster} />
                 <div>{this.props.reduxState.details.description}</div>
                 <h3>Genres:</h3>
                 <p>{this.props.reduxState.genres.name}</p>
-
-                {/* <div>{this.props.}</div> */}
             </div>
 
         );
