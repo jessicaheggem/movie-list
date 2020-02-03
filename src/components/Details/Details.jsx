@@ -25,6 +25,7 @@ class Details extends Component {
                 <br />
                 {/* stringify to see if I can splat data on the DOM */}
                 {/* {JSON.stringify(this.props.reduxState.details)} */}
+                {/* display image, title, description & genre on DOM */}
                 <h2>{this.props.reduxState.details.title}</h2>
                 <img src={this.props.reduxState.details.poster} />
                 <div>{this.props.reduxState.details.description}</div>
