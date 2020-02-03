@@ -55,3 +55,25 @@ VALUES
 ('Science Fiction'),
 ('Space-Opera'),
 ('Superhero');
+
+
+CREATE TABLE "movies_genres" (
+	"id" SERIAL PRIMARY KEY,
+	"movies_id" INT REFERENCES "movies",
+	"genres_id" INT REFERENCES "genres"
+);
+
+INSERT INTO "movies_genres" ( "movies_id", "genres_id")
+VALUES (1, 1), (2, 6), (3, 13), (4, 2);
+
+SELECT "genres".name, "movies".title FROM "genres"
+JOIN "movies_genres" ON "movies_genres".genres_id = "genres".id
+JOIN "movies" ON "movies".id = "movies_genres".movies_id
+-- The #4 below was just a test for the database to see if the correct information populated
+-- 4 changes to $1 in genres.router.js
+WHERE "movies".id = 4;
+
+-- added these to the database but still need to figure out how to pull in additional genres on the DOM
+-- only 1 is showing on the DOM
+INSERT INTO "movies_genres" ( "movies_id", "genres_id")
+VALUES (1, 6), (2, 10), (1, 10), (4, 4);
